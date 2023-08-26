@@ -14,6 +14,8 @@ def smallest_index(l):
 
         if l[i]<smallest_number:    # if the current number is smaller than the initialised smallest number
 
+            smallest_number = l[i]  # we update the smallest number as we go through every element
+            
             smallest_index = i      # we update the smallest index as we go through every element
 
     return smallest_index           # returning the smallest index
