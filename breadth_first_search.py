@@ -20,15 +20,15 @@ def bfs(graph, name):
     while search_queue:
         print(search_queue)
         person = search_queue.popleft()
-        if person not in searched:
-            if person_is_seller(person):
-                print(person[:-1].title()+"is a Mango seller")
-                return True
-            else:
+        if person_is_seller(person):
+            print(person[:-1].title()+"is a Mango seller")
+            return True
+        else:
+            if person not in searched:
                 search_queue += graph[person]
                 searched.append(person)
-        else:
-            print(f"{person} is already searched!")
+            else:
+                print(f"{person} is already searched!")
     return False
 print(bfs(graph,"you"))
 
