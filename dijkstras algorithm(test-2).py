@@ -38,39 +38,47 @@ def find_lowest_cost_node(costs,processed):
             lowest_cost_node = node
     return lowest_cost_node
 
-def dijkstras_algorithm(graph,costs,parents):
-  cost = 0
-  processed = []
-  node = find_lowest_cost_node(costs,processed)
-  while node is not None:
-    cost = costs[node]
-    print("-------------------------")
-    print(f"Node: {node} Cost:{cost}")
-    print("-------------------------")
-    neighbors = graph[node]
-    print(f"neighbours of {node} are {neighbors}")
-    if neighbors !=None:
-      for n in neighbors.keys():
-        new_cost = cost + neighbors[n]
-        print(costs)
-        print(f"New cost to get to {node}=>{n}: {new_cost}")
-        if new_cost < costs[n]:
-          costs[n] = new_cost # update cost
-          parents[n] = node # new node becomes new parent for this neighbor
-          print(f"Parent of {n} is now {node}")
-      print("\n")
-    processed.append(node)
+def find_path(tree, start_node, end_node):
+    path = []
+    current_node = end_node
+    
+    while current_node != start_node:
+        path.append(current_node)
+        if current_node not in tree:
+            print("No path found")
+            return
+        current_node = tree[current_node]
+    
+    path.append(start_node)
+    return "Path:", " -> ".join(path[::-1])
+    
+def dijkstras_algorithm(graph,costs,parents,start,end):
+    cost=0
+    processed = []
     node = find_lowest_cost_node(costs,processed)
-  print("\n")
-  print("Nodes Processed: ",processed)
-  return costs
+    while node is not None:
+        cost = costs[node]
+        neighbors = graph[node]
+        if neighbors != None:
+            for n in neighbors.keys():
+                new_cost = cost + neighbors[n]
+                if costs[n]>new_cost:
+                    costs[n] = new_cost
+                    parents[n] = node
+        processed.append(node)
+        node = find_lowest_cost_node(costs,processed)
+    
+    return costs,find_path(parents,start,end)
+start = "A"
+end = "F"
+lowest_costs, lowest_cost_path = dijkstras_algorithm(graph,costs,parents,start, end)
 
+print(f"The lowest cost to get to all the nodes from {start} are:\n")
+for k, v in lowest_costs.items():
+    print(f"{start} => {k} ------- {v}")
 print("\n")
-start_node = "A"
-distances = dijkstras_algorithm(graph,costs,parents)
-print("Shortest distances from node '{}' to all other nodes:".format(start_node))
-for node, distance in distances.items():
-    print("Node '{}' : Distance = {}".format(node, distance))
-print(parents)
+
+print(f"The lowest cost path from {start} to {end} is:\n {lowest_cost_path}")
+
             
         
