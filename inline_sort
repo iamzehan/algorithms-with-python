@@ -1,0 +1,11 @@
+def inline_sort(array):
+    for i in range(0,len(array)):
+        j = array.index(min(array[i:]))
+        minimum = array[j]
+        current = array[i]
+        if j > i:
+            array[i] = minimum
+            array[j] = current
+        elif j ==i:
+            continue
+    return array
