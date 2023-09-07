@@ -1,13 +1,15 @@
 def merge_the_tools(string, k):
-    splits = [(string[i:i+k]) for i in range(0, len(string), k)]
-    def find_unique(s):
-        new_s=''
-        for i in range(len(s)):
-            if i==0:
-                new_s+=s[i]
-            elif s[i] not in new_s:
-                new_s+=s[i]
-        return new_s
+    for i in range(0,len(string),k):
+        split=string[i:i+k]
+        new=''
+        for j in split:
+            if j == 0:
+                new+=j 
+            else:
+                if j not in new:
+                    new+=j
+        print(new) 
 
-    for result in [ find_unique(i) for i in splits]:
-        print(result)
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
