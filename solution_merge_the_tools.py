@@ -3,11 +3,8 @@ def merge_the_tools(string, k):
         split=string[i:i+k]
         new=''
         for j in split:
-            if j == 0:
-                new+=j 
-            else:
-                if j not in new:
-                    new+=j
+            if j not in new:
+                new+=j
         print(new) 
 
 if __name__ == '__main__':
