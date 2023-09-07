@@ -1,4 +1,4 @@
-def inline_sort(array):
+def inline__sort(array):
     for i in range(0,len(array)):
         j = array.index(min(array[i:]))
         minimum = array[j]
