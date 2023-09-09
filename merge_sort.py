@@ -33,6 +33,8 @@ def merge_sort(arr):
       arr[k] = R[j]
       j +=1
       k +=1
+  else:
+    return arr
 
 arr = [54,26,93,17,77,31,44,55,20]
 merge_sort(arr)
