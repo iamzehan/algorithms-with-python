@@ -11,11 +11,12 @@ def bubble_sort(arr):
         
         for j in range(size-1-i):
             print(f"j: {j}, j+1: {j+1}")
-            tmp = arr[j]
+
             print(f"comparing: {tmp} and {arr[j+1]}")
             comparisons+=1
-            if tmp > arr[j+1]:
+            if arr[j] > arr[j+1]:
                 print(f"swapping: {arr[j]} 🔄 {arr[j+1]}")
+                tmp = arr[j]
                 arr[j] = arr[j+1]
                 arr[j+1] = tmp
                 print("| "+" | ".join(map(str,arr))+" |")
