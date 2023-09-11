@@ -1,8 +1,7 @@
 def merge_the_tools(string, k):
     for i in range(0,len(string),k):
-        split=string[i:i+k]
         new=''
-        for j in split:
+        for j in string[i:i+k]:
             if j not in new:
                 new+=j
         print(new) 
