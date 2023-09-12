@@ -1,6 +1,6 @@
 graph = {} 
 nodes=list(input("What are the name of the Nodes?\n"))
-end=nodes.pop(nodes.index(input("Define you finsh Node:\n")))
+end=nodes.pop(nodes.index(input("Define your finsh Node:\n")))
 for i in nodes:
     graph[i]={} 
     neighbors=list(input(f"Neighbors of {i}:\n"))
