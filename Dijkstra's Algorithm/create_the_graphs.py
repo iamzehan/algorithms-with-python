@@ -1,7 +1,7 @@
 graph = {} 
 nodes=input("Name the nodes:").replace(""," ").replace(","," ").split()
 start=input("Define your start Node:\n")
-end=nodes.pop(nodes.index(input("Define your finsh Node:\n")))
+end=nodes.pop(nodes.index(input("Define your finish Node:\n")))
 for node in nodes:
     graph[node]={} 
     neighbors=input(f"Neighbors of {nodes}:\n").replace(""," ").replace(","," ").split()
