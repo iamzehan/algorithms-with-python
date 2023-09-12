@@ -86,10 +86,5 @@ print("right_up: ", right_up([4,4],[[3,5]]))
 print("right_down: ", right_down([4,4],[[3,5]]))
 print("left_up: ", left_up([4,4],[[3,5]]))
 print("left_down: ", left_down([4,4],[[3,5]]))
-    
-
-    
-    
-
 
 #link: https://www.hackerrank.com/challenges/queens-attack-2/problem
