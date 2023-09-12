@@ -9,16 +9,14 @@ def dfs(data, start, visited=set(), output=[]):
         dfs(data, i, visited)
     return " ".join(output)
 
-# sample data in dictionary form
-data = {
-        'A': {'B'},
-        'B': {'A', 'C', 'D'},
-        'C': {'B', 'E'},
-        'D': {'B', 'E'},
-        'E': {'C', 'D', 'F'},
-        'F': {'E'}
-        }
-
-
 if __name__ == '__main__':
+    # sample data in dictionary form
+    data = {
+            'A': {'B'},
+            'B': {'A', 'C', 'D'},
+            'C': {'B', 'E'},
+            'D': {'B', 'E'},
+            'E': {'C', 'D', 'F'},
+            'F': {'E'}
+            }
     print(dfs(data, 'D'))
