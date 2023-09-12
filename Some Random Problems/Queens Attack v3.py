@@ -48,7 +48,7 @@ def right_up(pos1,pos2,obs,n):
     right_up=0
     pos=[pos1,pos2]
     while pos[0]<n:
-        pos[0],pos[1]=[pos1,pos2][0]+1,pos[1]+1
+        pos[0],pos[1]=pos[0]+1,pos[1]+1
         if pos in obs:
             break
         else:
@@ -59,7 +59,7 @@ def right_down(pos1,pos2,obs,n):
     right_down=0
     pos=[pos1,pos2]
     while pos[0]>1 and pos[1]<n:
-        pos[0],pos[1]=[pos1,pos2][0]-1,pos[1]+1
+        pos[0],pos[1]=pos[0]-1,pos[1]+1
         if pos in obs:
             break
         else:
@@ -70,7 +70,7 @@ def left_up(pos1,pos2,obs,n):
     left_up=0
     pos=[pos1,pos2]
     while pos[0]<n and pos[1]>1:
-        pos[0],pos[1]=[pos1,pos2][0]+1,pos[1]-1
+        pos[0],pos[1]=pos[0]+1,pos[1]-1
         if pos in obs:
             break
         else:
@@ -81,7 +81,7 @@ def left_down(pos1,pos2,obs):
     left_down=0
     pos=[pos1,pos2]
     while pos[0]>1 and pos[1]>1:
-        pos[0],pos[1]=[pos1,pos2][0]-1,pos[1]-1
+        pos[0],pos[1]=pos[0]-1,pos[1]-1
         if pos in obs:
             break
         else:
