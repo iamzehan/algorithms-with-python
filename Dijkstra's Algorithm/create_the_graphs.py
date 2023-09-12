@@ -49,4 +49,5 @@ if __name__ == "__main__":
 		 if node != start}
 	parents = {node: start for node in graph[start].keys()}
 	costs, path = dijkstras_algorithm(graph,costs,parents, start, end)
-	print(costs+"\n"+path)
+	print(costs)
+	print(path)
