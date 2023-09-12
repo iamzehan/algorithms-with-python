@@ -11,6 +11,3 @@ graph[end]=None
 print(graph)
 costs = {node: graph[start][node] if node in graph[start] else float("inf") for node in graph.keys() if node != start}
 parents = {node: start for node in graph[start].keys()}
-
-
-       
