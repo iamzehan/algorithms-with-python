@@ -1,8 +1,9 @@
 def down(pos,obs):
     down=0
-    while pos[0]>1:
-        pos[0] -= 1
-        if pos in obs:
+		next_pos=pos
+    while next_pos[0]>1:
+        next_pos[0] -= 1
+        if next_pos in obs:
             break
         else:
             down+=1
@@ -10,6 +11,7 @@ def down(pos,obs):
 
 def up(pos,obs,n=5):
     up=0
+
     while pos[0]<n:
         pos[0] += 1
         if pos in obs:
