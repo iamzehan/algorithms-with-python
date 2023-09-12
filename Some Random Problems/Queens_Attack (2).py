@@ -1,6 +1,6 @@
 def down(pos,obs):
     down=0
-		next_pos=pos
+	next_pos=pos
     while next_pos[0]>1:
         next_pos[0] -= 1
         if next_pos in obs:
@@ -11,10 +11,10 @@ def down(pos,obs):
 
 def up(pos,obs,n=5):
     up=0
-
-    while pos[0]<n:
-        pos[0] += 1
-        if pos in obs:
+next_pos=pos
+    while next_pos[0]<n:
+        next_pos[0] += 1
+        if next_pos in obs:
             break
         else:
             up+=1
@@ -22,9 +22,10 @@ def up(pos,obs,n=5):
 
 def left(pos,obs):
     left=0
-    while pos[1]>1:
-        pos[1] -= 1
-        if pos in obs:
+next_pos=pos
+    while next_pos[1]>1:
+        next_pos[1] -= 1
+        if next_pos in obs:
             break
         else:
             left+=1
@@ -32,9 +33,10 @@ def left(pos,obs):
 
 def right(pos,obs,n=5):
     right=0
-    while pos[1]<n:
-        pos[1] += 1
-        if pos in obs:
+next_pos=pos
+    while next_pos[1]<n:
+        next_pos[1] += 1
+        if next_pos in obs:
             break
         else:
             right+=1
@@ -42,9 +44,10 @@ def right(pos,obs,n=5):
 
 def right_up(pos,obs,n=5):
     right_up=0
-    while pos[0]<n:
-        pos[0],pos[1]=pos[0]+1,pos[1]+1
-        if pos in obs:
+next_pos=pos
+    while next_pos[0]<n:
+        next_pos[0],next_pos[1]=next_pos[0]+1,next_pos[1]+1
+        if next_pos in obs:
             break
         else:
             right_up+=1
@@ -52,9 +55,10 @@ def right_up(pos,obs,n=5):
     
 def right_down(pos,obs,n=5):
     right_down=0
-    while pos[0]>1 and pos[1]<n:
-        pos[0],pos[1]=pos[0]-1,pos[1]+1
-        if pos in obs:
+next_pos=pos
+    while next_pos[0]>1 and next_pos[1]<n:
+        next_pos[0],next_pos[1]=next_pos[0]-1,next_pos[1]+1
+        if next_pos in obs:
             break
         else:
             right_down+=1
@@ -62,10 +66,11 @@ def right_down(pos,obs,n=5):
     
 def left_up(pos,obs,n=5):
     left_up=0
-    while pos[0]<n and pos[1]>1:
-        pos[0],pos[1]=pos[0]+1,pos[1]-1
+next_pos=pos
+    while next_pos[0]<n and next_pos[1]>1:
+        next_pos[0],next_pos[1]=next_pos[0]+1,next_pos[1]-1
         print(pos)
-        if pos in obs:
+        if next_pos in obs:
             break
         else:
             left_up+=1
@@ -73,9 +78,10 @@ def left_up(pos,obs,n=5):
     
 def left_down(pos,obs):
     left_down=0
-    while pos[0]>1 and pos[1]>1:
-        pos[0],pos[1]=pos[0]-1,pos[1]-1
-        if pos in obs:
+next_pos=pos
+    while next_pos[0]>1 and next_pos[1]>1:
+        next_pos[0],next_pos[1]=next_pos[0]-1,next_pos[1]-1
+        if next_pos in obs:
             break
         else:
             left_down+=1
