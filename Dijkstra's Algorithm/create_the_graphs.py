@@ -23,11 +23,12 @@ def dijkstras_algorithm(graph,costs,parents, start, end):
 	while node is not None:
 		cost = costs[node]
 		neighbors = graph[node]
-		for neighbor in neighbors.keys():
-			new_cost = cost+neighbors[neighbor]
-			if new_cost<costs[neighbor]:
-				costs[neighbor] = new_cost
-				parents[neighbor] = node
+		if neighbors is not None:
+			for neighbor in neighbors.keys():
+				new_cost = cost+neighbors[neighbor]
+				if new_cost<costs[neighbor]:
+					costs[neighbor] = new_cost
+					parents[neighbor] = node
 		processed.append(node)
 		node = lowest_cost_node(costs,processed)
 	return costs, find_path(parents, start, end)
