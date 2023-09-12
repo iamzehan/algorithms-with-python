@@ -9,4 +9,4 @@ Let's buckle up and say:
 
 <h1 align="center"> <img src="https://ventureteambuilding.co.uk/wp-content/uploads/2016/06/AllDay03.gif"> </h1>
 
-#### “ A journey of a thousand miles must begin with a single step.” — Lao Tzu.
+#### “A journey of a thousand miles must begin with a single step.” — Lao Tzu.
