@@ -1,104 +1,60 @@
-def down(pos1,pos2,obs):
-    down=0
-    pos=[pos1,pos2]
-    while pos[0]>1:
-        pos[0] -= 1
-        if pos in obs:
-            break
-        else:
-            down+=1
-    return down
+#!/bin/python3
+import os
 
-def up(pos1,pos2,obs,n):
-    up=0
-    pos=[pos1,pos2]
-    while pos[0]<n:
-        pos[0] += 1
-        if pos in obs:
-            pos=[]
-            break
-        else:
-            up+=1
-    return up
+def queensAttack(n, k, r_q, c_q, obs):
 
-def left(pos1,pos2,obs):
-    left=0
-    pos=[pos1,pos2]
+    obs_set = set((r, c) for r, c in obs)
     
-    while pos[1]>1:
-        pos[1] -= 1
-        if pos in obs:
-            break
-        else:
-            left+=1
-    return left
-
-def right(pos1,pos2,obs,n):
-    right=0
-    pos=[pos1,pos2]
-    while pos[1]<n:
-        pos[1] += 1
-        if pos in obs:
-            break
-        else:
-            right+=1
-    return right
-
-def right_up(pos1,pos2,obs,n):
-    right_up=0
-    pos=[pos1,pos2]
-    while pos[0]<n:
-        pos[0],pos[1]=pos[0]+1,pos[1]+1
-        if pos in obs:
-            break
-        else:
-            right_up+=1
-    return right_up
+    moves = [
+        (0, 1),   # Right
+        (0, -1),  # Left
+        (1, 0),   # Down
+        (-1, 0),  # Up
+        (1, 1),   # Right Down
+        (-1, 1),  # Right Up
+        (1, -1),  # Left Down
+        (-1, -1), # Left Up
+    ]
     
-def right_down(pos1,pos2,obs,n):
-    right_down=0
-    pos=[pos1,pos2]
-    while pos[0]>1 and pos[1]<n:
-        pos[0],pos[1]=pos[0]-1,pos[1]+1
-        if pos in obs:
-            break
-        else:
-            right_down+=1
-    return right_down
-    
-def left_up(pos1,pos2,obs,n):
-    left_up=0
-    pos=[pos1,pos2]
-    while pos[0]<n and pos[1]>1:
-        pos[0],pos[1]=pos[0]+1,pos[1]-1
-        if pos in obs:
-            break
-        else:
-            left_up+=1
-    return left_up
-    
-def left_down(pos1,pos2,obs):
-    left_down=0
-    pos=[pos1,pos2]
-    while pos[0]>1 and pos[1]>1:
-        pos[0],pos[1]=pos[0]-1,pos[1]-1
-        if pos in obs:
-            break
-        else:
-            left_down+=1
-    return left_down
+    max_moves = 0
 
-n = 5
-pos1, pos2 = [4, 3]
-obs = [[2, 3], [4, 2], [5, 5]]
+    for move in moves:
+        dx, dy = move
+        pos1, pos2 = r_q + dx, c_q + dy
+        moves_in_direction = 0
+        
+        while 1 <= pos1 <= n and 1 <= pos2 <= n and (pos1, pos2) not in obs_set:
+            moves_in_direction += 1
+            pos1 += dx
+            pos2 += dy
+        
+        max_moves += moves_in_direction
+    
+    return max_moves
 
-down_result = down(pos1, pos2, obs)
-up_result = up(pos1, pos2, obs, n)
-left_result = left(pos1, pos2, obs)
-right_result = right(pos1, pos2, obs, n)
-right_up_result = right_up(pos1, pos2, obs, n)
-right_down_result = right_down(pos1, pos2, obs, n)
-left_up_result = left_up(pos1, pos2, obs, n)
-left_down_result = left_down(pos1, pos2, obs)
-total_moves = down_result + up_result + left_result + right_result + right_up_result + right_down_result + left_up_result + left_down_result
-print("Total moves:", total_moves)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    first_multiple_input = input().rstrip().split()
+
+    n = int(first_multiple_input[0])
+
+    k = int(first_multiple_input[1])
+
+    second_multiple_input = input().rstrip().split()
+
+    r_q = int(second_multiple_input[0])
+
+    c_q = int(second_multiple_input[1])
+
+    obstacles = []
+
+    for _ in range(k):
+        obstacles.append(list(map(int, input().rstrip().split())))
+
+    result = queensAttack(n, k, r_q, c_q, obstacles)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
