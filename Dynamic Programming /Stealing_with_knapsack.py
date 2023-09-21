@@ -13,7 +13,7 @@ Now your job is to steal the items that can be held within the limits of your kn
 
 def stealing_with_knapsack(items, capacity):
     n = len(items)
-    dp = [[0000]*(capacity+1) for _ in range(n+1)]
+    dp = [[0]*(capacity+1) for _ in range(n+1)]
     for i in range(1, n+1):
         for w in range(1, capacity+1):
             if items[i-1][1]<=w:
