@@ -14,44 +14,49 @@
 * Your task is to determine the most effective strategy for utilizing your available time to maximize the overall value, taking into account the ratings of the places you intend to visit.
 """
 
-def camping_knapsack(items, capacity):
-    n = len(items) # rows
-    # Initialize a table to store the maximum values for different capacities
-    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+def maximize_rating(attractions, available_time):
+    n = len(attractions)  # Number of attractions
+    
+    # Create a 2D table to store the maximum rating for different time constraints
+    dp = [[0] * (int(available_time * 2) + 1) for _ in range(n + 1)]
 
-    for i in range(1, n + 1): #rows
-        for w in range(1, capacity + 1): #columns
-            # If the current item can fit in the knapsack, consider taking it
-            if items[i - 1][1] <= w: 
-                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - items[i - 1][1]] + items[i - 1][2])
+    for i in range(1, n + 1):
+        for t in range(1, int(available_time * 2) + 1):
+            name, duration, rating = attractions[i - 1]
+            if duration <= t / 2:
+                dp[i][t] = max(dp[i - 1][t], dp[i - 1][int(t - 2 * duration)] + rating)
             else:
-                # If it can't fit, don't take it
-                dp[i][w] = dp[i - 1][w]
+                dp[i][t] = dp[i - 1][t]
 
-    # Backtrack to find the selected items
-    selected_items = []
-    i, w = n, capacity
-    while i > 0 and w > 0:
-        print(i,w)
-        if dp[i][w] != dp[i - 1][w]:
-            selected_items.append(items[i - 1])
-            print(selected_items)
-            w -= items[i - 1][1]
+    # Backtrack to find the selected attractions
+    selected_attractions = []
+    i, t = n, int(available_time * 2)
+    while i > 0 and t > 0:
+        if dp[i][t] != dp[i - 1][t]:
+            name, duration, rating = attractions[i - 1]
+            selected_attractions.append(attractions[i - 1])
+            t -= int(2 * duration)
         i -= 1
 
-    return dp[n][capacity], selected_items
+    return dp[n][int(available_time * 2)], selected_attractions
 
-# Define the items
-items = [("Water", 3, 10), ("Book", 1, 3), ("Food", 2, 9), ("Jacket", 2, 5), ("Camera", 1, 6)]
+# Define the attractions and available time
+attractions = [
+    ("WESTMINSTER ABBEY", 0.5, 7),
+    ("GLOBE THEATER", 0.5, 6),
+    ("NATIONAL GALLERY", 1, 9),
+    ("BRITISH MUSEUM", 2, 8),
+    ("ST. PAUL'S CATHEDRAL", 0.5, 8),
+]
 
-# Define the knapsack capacity
-capacity = 6
+available_time = 2.0  # 2 days
 
-# Find the optimal set of items and their total value
-max_value, selected_items = camping_knapsack(items, capacity)
+# Find the optimal set of attractions and their total rating
+max_rating, selected_attractions = maximize_rating(attractions, available_time)
 
 # Print the results
-print(f"Optimal set of items to take:")
-for item in selected_items:
-    print(f"{item[0]} - Weight: {item[1]} lb, Value: ${item[2]}")
-print(f"Total Value: ${max_value}")
+print(f"Optimal set of attractions to visit:")
+for attraction in selected_attractions:
+    print(f"{attraction[0]} - Duration: {attraction[1]} days, Rating: {attraction[2]}")
+print(f"Total Rating: {max_rating}")
+
