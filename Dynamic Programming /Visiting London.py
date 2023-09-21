@@ -40,23 +40,24 @@ def maximize_rating(attractions, available_time):
 
     return dp[n][int(available_time * 2)], selected_attractions
 
-# Define the attractions and available time
-attractions = [
-    ("WESTMINSTER ABBEY", 0.5, 7),
-    ("GLOBE THEATER", 0.5, 6),
-    ("NATIONAL GALLERY", 1, 9),
-    ("BRITISH MUSEUM", 2, 8),
-    ("ST. PAUL'S CATHEDRAL", 0.5, 8),
-]
-
-available_time = 2.0  # 2 days
-
-# Find the optimal set of attractions and their total rating
-max_rating, selected_attractions = maximize_rating(attractions, available_time)
-
-# Print the results
-print(f"Optimal set of attractions to visit:")
-for attraction in selected_attractions:
-    print(f"{attraction[0]} - Duration: {attraction[1]} days, Rating: {attraction[2]}")
-print(f"Total Rating: {max_rating}")
+if __name__ == "__main__":
+    # Define the attractions and available time
+    attractions = [
+        ("WESTMINSTER ABBEY", 0.5, 7),
+        ("GLOBE THEATER", 0.5, 6),
+        ("NATIONAL GALLERY", 1, 9),
+        ("BRITISH MUSEUM", 2, 8),
+        ("ST. PAUL'S CATHEDRAL", 0.5, 8),
+    ]
+    
+    available_time = 2.0  # 2 days
+    
+    # Find the optimal set of attractions and their total rating
+    max_rating, selected_attractions = maximize_rating(attractions, available_time)
+    
+    # Print the results
+    print(f"Optimal set of attractions to visit:")
+    for attraction in selected_attractions:
+        print(f"{attraction[0]} - Duration: {attraction[1]} days, Rating: {attraction[2]}")
+    print(f"Total Rating: {max_rating}")
 
