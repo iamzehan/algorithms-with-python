@@ -1,7 +1,7 @@
 def is_palindrome(string):
     i = 0
     j = len(string)-1
-    while i>j:
+    while i<j:
         if string[i]==string[j]:
             i+=1
             j-=1
@@ -9,5 +9,6 @@ def is_palindrome(string):
             return False
     
     return True
-string = "racecar"
-print(is_palindrome(string))
+if __name__ == "__main__":
+    for string in "civic,radar,level,rotor,kayak,madam,refer".split(","):
+        print(string,":",is_palindrome(string))
