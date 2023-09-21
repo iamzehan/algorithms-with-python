@@ -1,8 +1,7 @@
 def is_palindrome(string):
     i = 0
     j = len(string)-1
-    m  = j//2
-    while i<m and j>m:
+    while i>j:
         if string[i]==string[j]:
             i+=1
             j-=1
