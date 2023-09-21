@@ -1,3 +1,19 @@
+"""
+* Supppose you are going to London for a nice vacation. You have two days there and a lot of things you want to do. You can't do everything, so you make a list.
+
+
+| Attraction             | Duration (days)  | Rating |
+|------------------------|------------------|--------|
+| WESTMINSTER ABBEY      | 0.5              | 7      |
+| GLOBE THEATER          | 0.5              | 6      |
+| NATIONAL GALLERY       | 1                | 9      |
+| BRITISH MUSEUM         | 2                | 8      |
+| ST. PAUL'S CATHEDRAL   | 0.5              | 8      |
+
+
+* Your task is to determine the most effective strategy for utilizing your available time to maximize the overall value, taking into account the ratings of the places you intend to visit.
+"""
+
 def camping_knapsack(items, capacity):
     n = len(items) # rows
     # Initialize a table to store the maximum values for different capacities
