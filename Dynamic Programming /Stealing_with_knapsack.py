@@ -1,3 +1,16 @@
+"""
+Suppose you are a thief stealing items from a scene, you have a knapsack with the capacity to hold upto 4lbs of items and here are the weights and values of available items:
+
+| Item    | Weight | Value  |
+| ------- | ------ | ------ |
+| Guiter  | 1      | 1500   |
+| Stereo  | 4      | 3000   |
+| Laptop  | 3      | 2000   |
+
+Now your job is to steal the items that can be held within the limits of your knapsack and also maximize the value of total stolen goods.
+"""
+
+
 def stealing_with_knapsack(items, capacity):
     n = len(items)
     dp = [[0000]*(capacity+1) for _ in range(n+1)]
