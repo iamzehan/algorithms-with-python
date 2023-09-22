@@ -1,4 +1,3 @@
-import pprint
 def buildGraph(edges):
     graph = {}
     for edge in edges:
@@ -34,7 +33,7 @@ if __name__ == '__main__':
       ['z', 'v'],
       ['w', 'v']
     ]
-    pprint.pprint(shortestPath(edges, 'w', 'z'))
+    print(shortestPath(edges, 'w', 'z'))
     edges = [
       ['w', 'x'],
       ['x', 'y'],
@@ -42,7 +41,7 @@ if __name__ == '__main__':
       ['z', 'v'],
       ['w', 'v']
     ]
-    pprint.pprint(shortestPath(edges, 'y', 'x'))
+    print(shortestPath(edges, 'y', 'x'))
     edges = [
       ['a', 'c'],
       ['a', 'b'],
@@ -52,5 +51,5 @@ if __name__ == '__main__':
       ['e', 'd'],
       ['g', 'f']
     ]
-    pprint.pprint(shortestPath(edges, 'a', 'e'))
+    print(shortestPath(edges, 'a', 'e'))
     
