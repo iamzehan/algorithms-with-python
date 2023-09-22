@@ -8,8 +8,8 @@ def islandCount(grid):
     return count
 
 def explore(grid, r, c, visited):
-    rowInbounds = 0<r and r<len(grid)
-    colInbounds = 0<c and c<len(grid[0])
+    rowInbounds = 0<=r and r<len(grid)
+    colInbounds = 0<=c and c<len(grid[0])
     if (not rowInbounds or not colInbounds):
         return False
     if grid[r][c] == 'W':
