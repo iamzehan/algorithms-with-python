@@ -4,7 +4,7 @@ def smallest_island(grid):
     for r in range(len(grid)):
         for c in range(len(grid[0])):
             size =explore_size(grid, r, c,visited)
-            if size>0 and size<min_size:
+            if 0<size<min_size:
                 min_size=size
     if min_size==float("inf"):
         return "No Islands found"
