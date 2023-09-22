@@ -11,8 +11,8 @@ def smallest_island(grid):
     return min_size
 
 def explore_size(grid, r, c, visited):
-    rowInbounds = 0<r and r<len(grid)
-    colInbounds = 0<c and c<len(grid[0])
+    rowInbounds = 0<=r and r<len(grid)
+    colInbounds = 0<=c and c<len(grid[0])
     if (not rowInbounds or not colInbounds):
         return 0
     if grid[r][c] == 'W':
