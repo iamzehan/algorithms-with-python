@@ -7,6 +7,6 @@ The struggle is real when it comes to the basics of coding. Sometimes, we forget
 Don't worry, I've got you, and you've got this too. Let's go through those hard-to-grasp, abstract problems that make your head scratch.
 Let's buckle up and say: 
 
-<h1 align="center"> <img src="https://ventureteambuilding.co.uk/wp-content/uploads/2016/06/AllDay03.gif"> </h1>
+<h1 align="center"> <img src=https://media.tenor.com/Lrx2omjrmLwAAAAC/captain-america-i-can-do-this-all-day.gif"> </h1>
 
 #### “A journey of a thousand miles must begin with a single step.” — Lao Tzu.
