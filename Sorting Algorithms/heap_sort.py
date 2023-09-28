@@ -1,41 +1,42 @@
 # This is the OG of sorting algorithms that was invented back in the 1960s! Mind boggling yet once you get it, it becomes simpler with every try!
-  def heapify(arr, n, i):
-      # Find largest among root and children
-      largest = i
-      l = 2 * i + 1
-      r = 2 * i + 2
-  
-      if l < n and arr[i] < arr[l]:
-          largest = l
-  
-      if r < n and arr[largest] < arr[r]:
-          largest = r
-  
-      # If root is not largest, swap with largest and continue heapifying
-      if largest != i:
-          arr[i], arr[largest] = arr[largest], arr[i]
-          heapify(arr, n, largest)
-  
-  
-  def heapSort(arr):
-      n = len(arr)
-  
-      # Build max heap
-      for i in range(n//2, -1, -1):
-          heapify(arr, n, i)
-  
-      for i in range(n-1, 0, -1):
-          # Swap
-          arr[i], arr[0] = arr[0], arr[i]
-  
-          # Heapify root element
-          heapify(arr, i, 0)
-  
-  
-  arr = [1, 12, 9, 5, 6, 10]
-  heapSort(arr)
+def heapify(arr, n, i):
+  # Find largest among root and children
+  root = i
+  l = 2 * i + 1
+  r = 2 * i + 2
+
+  if l < n and arr[root] < arr[l]:
+      root = l
+
+  if r < n and arr[root] < arr[r]:
+      root = r
+
+  # If root is not the largest, then swap with the largest and continue heapifying
+  if root != i:
+      # swap
+      arr[i], arr[root] = arr[root], arr[i]
+      # continue 
+      return heapify(arr, n, root) 
+  else: # if root is the largest element in the tree then return the array
+    return arr
+
+def heapSort(arr):
   n = len(arr)
-  print("Sorted array is")
-  for i in range(n):
-      print("%d " % arr[i], end='')
+
+  # Build max heap
+  for i in range(n//2, -1, -1):
+      arr = heapify(arr, n, i)
+
+  for i in range(n-1, 0, -1):
+      # Swap
+      arr[i], arr[0] = arr[0], arr[i]
+
+      # Heapify root element
+      arr = heapify(arr, i, 0)
+  return arr
   
+if __name__ == '__main__':
+  arr = [6,3,10,12,9,5,11,2,7,4,1,8] 
+  print(heapSort(arr)) # >> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  arr = [1, 12, 9, 5, 6, 10]
+  print(heapSort(arr)) # >> [1, 5, 6, 9, 10, 12]
