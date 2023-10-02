@@ -1,4 +1,4 @@
-"""Selection sort, the Big O notation for it is O(n^2)"""
+"""Selection sort, the Big O notation for it is O(n²)"""
 
 # two steps to do selection sort
 # Step 1: We find the smallest index in the list
