@@ -1,4 +1,5 @@
 # This is the OG of sorting algorithms that was invented back in the 1960s! Mind boggling yet once you get it, it becomes simpler with every try!
+# Time complexity for it is O(n log(n)) and space complexity is O(1)
 def heapify(arr, n, i):
   # Find largest among root and children
   root = i
