@@ -16,7 +16,7 @@ def bubble_sort(arr):
             comparisons+=1
             if arr[j] > arr[j+1]:
                 print(f"swapping: {arr[j]} 🔄 {arr[j+1]}")
-                arr[j],arr[j+1] = arr[j+1],arr[j]
+                arr[j],arr[j+1] = arr[j+1],arr[j] # swap
                 print("| "+" | ".join(map(str,arr))+" |")
                 swapped = True
                 swaps+=1
