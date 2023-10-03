@@ -15,32 +15,26 @@ def word_search(grid:list[list[str]],word:str)->bool:
                 return True
     return False
 
-def explore(r:int, c:int, i:int, visited=set())->bool:
-    #taking the current position
-    pos = (r,c)
-    # checking the bounds
-    rowInbounds = 0<=r and r<len(grid)
-    colInbounds = 0<=c and c<len(grid[0])
-    
-    #if we have reached the length of the word 
-    if i == len(word):
+def explore(r:int, c:int, i:int)->bool:
+    if i==len(word):
         return True
-    #checking all aspects of base case
-    if (not rowInbounds or not colInbounds
-    or grid[r][c] !=word[i] or pos in visited):
+    if (
+        r < 0 or r >= len(grid) or 
+        c < 0 or c >= len(grid[0]) or 
+        grid[r][c] != word[i]
+        ):
         return False
-    # push the position into visited
-    visited.add(pos)
-    result = (
-        explore(r-1,c, i+1, visited) or  # up
-        explore(r+1, c, i+1, visited) or # down
-        explore(r, c-1, i+1, visited) or # left
-        explore(r, c+1, i+1, visited)    # right
-        )
-    #remove from the top of the stack
-    visited.remove(pos) 
     
-    return result
+    temp, grid[r][c] = grid[r][c], "*"
+    
+    if(explore(r-1, c, i+1) or
+        explore(r+1, c, i+1) or
+        explore(r, c-1, i+1) or
+        explore(r, c+1, i+1)):
+        return True
+    grid[r][c]=temp
+    return False
+    
     
 if __name__ == '__main__':
     #global
