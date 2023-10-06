@@ -1,4 +1,4 @@
-def letterCombinations(self, digits):
+def letterCombinations(digits):
     """
     :type digits: str
     :rtype: List[str]
