@@ -13,8 +13,9 @@ def backtrack(pos, res, combi, target):
         combi.append(candidates[i])
         backtrack(i + 1, res, combi, target - candidates[i])
         combi.pop()
+    return res
 if __name__ == '__main__':
   candidates = [10, 1, 2, 7, 6, 1, 5]
   target = 8
   candidates.sort()
-  print(backtrack(0, result, [], target))
+  print(backtrack(0, [], [], target))
