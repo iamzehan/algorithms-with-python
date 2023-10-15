@@ -61,4 +61,81 @@ board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]
 words = ["oath","pea","eat","rain"]
 obj = WordSearch()
 print(obj.findWords(board, words))
+
+"""
+How the tree turns out after adding all the words
+{
+    "root": {
+        "children": {
+            "o": {
+                "children": {
+                    "a": {
+                        "children": {
+                            "t": {
+                                "children": {
+                                    "h": {
+                                        "children": {},
+                                        "endOfWord": true
+                                    }
+                                },
+                                "endOfWord": false
+                            }
+                        },
+                        "endOfWord": false
+                    }
+                },
+                "endOfWord": false
+            },
+            "p": {
+                "children": {
+                    "e": {
+                        "children": {
+                            "a": {
+                                "children": {},
+                                "endOfWord": true
+                            }
+                        },
+                        "endOfWord": false
+                    }
+                },
+                "endOfWord": false
+            },
+            "e": {
+                "children": {
+                    "a": {
+                        "children": {
+                            "t": {
+                                "children": {},
+                                "endOfWord": true
+                            }
+                        },
+                        "endOfWord": false
+                    }
+                },
+                "endOfWord": false
+            },
+            "r": {
+                "children": {
+                    "a": {
+                        "children": {
+                            "i": {
+                                "children": {
+                                    "n": {
+                                        "children": {},
+                                        "endOfWord": true
+                                    }
+                                },
+                                "endOfWord": false
+                            }
+                        },
+                        "endOfWord": false
+                    }
+                },
+                "endOfWord": false
+            }
+        },
+        "endOfWord": false
+    }
+}
+"""
 # >> ['oath', 'eat'] 
