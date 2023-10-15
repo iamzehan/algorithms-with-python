@@ -48,5 +48,39 @@ class Trie:
 
 t = Trie()
 t.insert("apple") 
+"""
+This how the tree looks like after inserting 'apple'
+Tree: {
+    "root": {
+        "children": {
+            "a": {
+                "children": {
+                    "p": {
+                        "children": {
+                            "p": {
+                                "children": {
+                                    "l": {
+                                        "children": {
+                                            "e": {
+                                                "children": {},
+                                                "endOfWord": true
+                                            }
+                                        },
+                                        "endOfWord": false
+                                    }
+                                },
+                                "endOfWord": false
+                            }
+                        },
+                        "endOfWord": false
+                    }
+                },
+                "endOfWord": false
+            }
+        },
+        "endOfWord": false
+    }
+}
+"""
 print(t.search("apple")) # >> True
 print(t.startsWith("app")) # >> True	
