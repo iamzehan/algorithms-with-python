@@ -9,6 +9,7 @@ def LongestCommonSubSequence(text1:str, text2:str) -> int:
     return dp[0][0]
 
 if __name__ == '__main__':
-  text1 = "abcde"
-  text2 = "ace"
-  print(LongestCommonSubSequence(text1, text2))
+    text1 = "abcde"
+    text2 = "ace"
+    result = LongestCommonSubSequence(text1, text2)
+    print(result)
