@@ -12,4 +12,4 @@ def eraseOverlapIntervals(intervals):
 if __name__ == "__main__":
     intervals = [[1,2], [2,3], [3,4], [1,3]]
     result = eraseOverlapIntervals(intervals)
-    print(result)
+    print(result) # >> 1
