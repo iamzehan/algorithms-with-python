@@ -6,7 +6,8 @@ class Solution:
             if curSum < 0:
                 curSum = 0
             curSum+=n
-            maxSub = max(maxSub, curSum)
+            if curSum>maxSub:
+                maxSub = curSum
         return maxSub
 
 s = Solution()
