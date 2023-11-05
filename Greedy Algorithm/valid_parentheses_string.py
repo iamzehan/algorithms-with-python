@@ -20,3 +20,4 @@ if __name__ == '__main__':
     s = "(*)("
     result = solution.checkValidString(s)
     print(result)
+#output False
