@@ -1,5 +1,5 @@
 class Solution:
-    def findItirinary(self, tickets):
+    def findItinerary(self, tickets):
         adj = {start: [] for start, destination in tickets}
         tickets.sort()
         for start, destination in tickets:
@@ -24,4 +24,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
-    print(s.findItirinary(tickets))
+    print(s.findItinerary(tickets))
