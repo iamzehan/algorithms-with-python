@@ -8,7 +8,7 @@ def maximize_it(arrays, M, i = 0, li =0, prod =[], maxHeap=[]):
         prod.append(arrays[li][j])
         maximize_it(arrays, M, i, li+1, prod, maxHeap)
         prod.pop()
-    return maxHeap[0]*(-1)
+    return maxHeap
     
 if __name__== '__main__':
     arrays=[
@@ -17,5 +17,5 @@ if __name__== '__main__':
         [5, 5, 7, 8, 9, 10]
         ]
     M = 1000
-    result = maximize_it(arrays, M)
+    result = maximize_it(arrays, M)[0] * (-1)
     print(result)
