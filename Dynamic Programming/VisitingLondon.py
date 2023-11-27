@@ -13,6 +13,7 @@
 
 * Your task is to determine the most effective strategy for utilizing your available time to maximize the overall value, taking into account the ratings of the places you intend to visit.
 """
+#this solution is a bit expensive
 
 def maximize_rating(attractions, available_time):
     n = len(attractions)  # Number of attractions
