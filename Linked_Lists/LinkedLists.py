@@ -1,6 +1,6 @@
 # courtesy for this code goes to ©️ geeksforgeeks.com
 
-# Explained by Md. Ziaul Karim
+# Explained by ©️ Md. Ziaul Karim
 # This is our Node class that creates elements of a linked list
 class Node:
     #this is our constructor, that takes data as an argument, puts it in the data object & initializs the next pointer as None by default
@@ -140,7 +140,7 @@ class LinkedList:
         # if head doesn't exit, then the list is empty, so there's nothing to remove
         if(self.head == None):
             return
-        # new HEAD is the next element
+        # The next element is the new HEAD
         self.head = self.head.next
  
     # Method to remove last node of linked list
@@ -148,32 +148,45 @@ class LinkedList:
         # if head doesn't exit, then the list is empty, so there's nothing to remove
         if self.head is None:
             return
- 
+        # Otherwise,
+        # We traverse the list till we reach the last node that has next = None
         current_node = self.head
         try:
+            # we keep going next till we reach [..........current_node, next, next] 
             while(current_node.next.next):
-                current_node = current_node.next
+                current_node = current_node.next # now we are here -> [..........current_node, next]
         except:
             return
+        # Now we say [.........., current_node], breaking away the connection with the last node 
         current_node.next = None
  
     # Method to remove at given index
     def remove_at_index(self, index):
+        # if head doesn't exit, then the list is empty, so there's nothing to remove
         if self.head == None:
             return
- 
+        # Otherwise,
         current_node = self.head
         position = 0
+        #if index is 0
         if position == index:
-            self.remove_first_node()
+            self.remove_first_node() # remove the first node
+        #otherwise
         else:
+            # We traverse the list starting at position 0, as long as our current_node is occupied and the position doesn't match our determined index, 
+            # if it matches we break the loop, 
+            # even if it doesn't we complete the loop, and end up at the last index, where current_node's next is None
             while(current_node != None and position+1 != index):
-                position = position+1
-                current_node = current_node.next
- 
+                position = position+1  # index: "What? This ain't the right address? A'ight, I'm going next_door. 🚶"
+                current_node = current_node.next #current_node: gets updated to next door address.
+            
+            # Once that is done, we might or might not have arrived at the previous index/address of our desired index /address, which is at our current_node
+
+            # current_node: "Oh yeah, the address you're looking for is just next door." -> [...., current_node, target_index, next, next, ....]
             if current_node != None:
                 try:
-                    current_node.next = current_node.next.next
+                    # We place the address next to the target_index to the next address
+                    current_node.next = current_node.next.next  # -> [current_node, next, next, ....] 
                 except:
                     return
             else:
@@ -182,35 +195,39 @@ class LinkedList:
     # Method to remove a node from linked list
     def remove_node(self, data):
         current_node = self.head
- 
+        #Traverse the list, till the data matches to the next of the current_node, basically [...., current_node, target_node, next, next, ....]
         while(current_node != None and current_node.next.data != data):
             current_node = current_node.next
- 
+        # if it reaches the end of the list without finding a match, then we return
         if current_node == None:
             return
+        # if it finds a match -> [...., current_node, target_node, next, next, ....]
         else:
-            current_node.next = current_node.next.next
+            current_node.next = current_node.next.next # then -> [...., current_node, next, next, ....]
  
     # Print the size of linked list
     def sizeOfLL(self):
         size = 0
         if(self.head):
             current_node = self.head
+            # while a current_node exists
             while(current_node):
-                size = size+1
-                current_node = current_node.next
-            return size
+                size = size+1 # we add it to the size
+                current_node = current_node.next # then we move to the next
+            return size # then we return size
         else:
+            # in case the list is empty or the HEAD wasn't found
             return 0
  
     # print method for the linked list
     def printLL(self):
+        # Starting from the HEAD
         current_node = self.head
-        linked_list=[]
-        while(current_node):
-            linked_list.append(current_node.data)
-            current_node = current_node.next
-        print(linked_list)
+        linked_list=[] # this is the list where we store every element to show it as a normal list
+        while(current_node): # while current_node exists
+            linked_list.append(current_node.data) # append the data of the current node to the empty list
+            current_node = current_node.next # move to the next node
+        print(linked_list) #print the linked list
  
 if __name__ == "__main__":
     # create a new linked list
