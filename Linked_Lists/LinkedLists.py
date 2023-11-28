@@ -158,6 +158,7 @@ class LinkedList:
         except:
             return
         # Now we say [.........., current_node], breaking away the connection with the last node 
+        print(f"Removing -> '{current_node.next.data}'")
         current_node.next = None
  
     # Method to remove at given index
@@ -186,6 +187,7 @@ class LinkedList:
             if current_node != None:
                 try:
                     # We place the address next to the target_index to the next address
+                    print(f"Removing -> '{current_node.next.data}'")
                     current_node.next = current_node.next.next  # -> [current_node, next, next, ....] 
                 except:
                     return
@@ -203,6 +205,7 @@ class LinkedList:
             return
         # if it finds a match -> [...., current_node, target_node, next, next, ....]
         else:
+            print(f"Removing -> '{current_node.next.data}'")
             current_node.next = current_node.next.next # then -> [...., current_node, next, next, ....]
  
     # Print the size of linked list
@@ -243,15 +246,18 @@ if __name__ == "__main__":
     # print the linked list
     print("Node Data")
     llist.printLL()
-    
+    print("\nHEAD of linked list:", end =" ")
+    print(llist.head.data)
     # remove a nodes from the linked list
     print("\nRemove First Node")
     llist.remove_first_node()
     llist.printLL()
-    print("Remove Last Node")
+    print("\nHEAD of linked list:", end =" ")
+    print(llist.head.data)
+    print("\nRemove Last Node")
     llist.remove_last_node()
     llist.printLL()
-    print("Remove Node at Index 1")
+    print("\nRemove Node at Index 1")
     llist.remove_at_index(1)
     llist.printLL()
     
@@ -266,3 +272,6 @@ if __name__ == "__main__":
     
     print("\nSize of linked list :", end=" ")
     print(llist.sizeOfLL())
+    
+    print("\nHEAD of linked list:", end =" ")
+    print(llist.head.data)
